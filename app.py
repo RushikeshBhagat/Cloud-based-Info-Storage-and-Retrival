@@ -4,17 +4,17 @@ import pyodbc
 import csv
 from azure.storage.blob import BlobServiceClient
 
-server = 'rushikeshbhagat.database.windows.net'
-database = 'profile'
-username = 'rushi'
-password = 'April@5420'   
+server = 'Add Azure SQL db server name'
+database = 'Add database name'
+username = 'Add database username'
+password = 'Add password for database user'   
 driver= '{ODBC Driver 17 for SQL Server}'
 
 connstr = 'DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password
 
-blob_connstr = 'DefaultEndpointsProtocol=https;AccountName=sample1486;AccountKey=5i/MJWuHuzjm3uCMjDSFN1j5EFIrXWRL5dt0qfhZ5uOM7nsI3miMYoz/p0cvAC6wkFjzlSf6cWDi+AStCrgsaw==;EndpointSuffix=core.windows.net' 
-container_name = 'sample'
-blob_account_name = 'sample1486'
+blob_connstr = 'Add your Azure Blob api key' 
+container_name = 'Add your Conatiner Name'
+blob_account_name = 'Add your Blob account Name'
 
 app = Flask(__name__)
 
@@ -115,6 +115,7 @@ def search_image(username):
     return blob_url
 
 def filter_search(name,min_sal,max_sal,room,telnum):
+    #This function searches records based on given filters
     try:
 
         conn = pyodbc.connect(connstr)
